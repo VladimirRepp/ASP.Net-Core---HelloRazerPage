@@ -11,18 +11,20 @@ namespace HelloRazerPages.Services
         {
             _users = new List<User>
             {
-                new User { Id = 1, Login = "user1", Password = "pass1" },
-                new User { Id = 2, Login = "user2", Password = "pass2" }
+                new User { Id = GetCurrentId(), Login = "user1", Password = "pass1" },
+                new User { Id = GetCurrentId(), Login = "user2", Password = "pass2" }
             };
         }
 
+        private int GetCurrentId() => _nextId++;
+        
         public List<User> GetAll() => _users;
 
         public User GetById(int id) => _users.FirstOrDefault(u => u.Id == id);
 
         public void Add(User user)
         {
-            user.Id = _nextId++;
+            user.Id = GetCurrentId();
             _users.Add(user);
         }
 
