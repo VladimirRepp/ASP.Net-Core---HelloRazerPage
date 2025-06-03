@@ -7,12 +7,16 @@ Pages/
 
 └── UsersPage.cshtml/         // Razor Page (HTML + JS)
     └── UsersPage.cshtml.cs   // PageModel (C#)
+    
 └── ContactsPage.cshtml/      // Razor Page (HTML + JS)
-└── ContactsPage.cshtml.cs   // PageModel (C#)
+    └── ContactsPage.cshtml.cs   // PageModel (C#)
+    
 Services/
 └── UserService.cs          // Логика работы с данными
+
 Models/
 └── User.cs                 // Модель пользователя
+
 wwwroot/
 └── css/
     └── site.css            // Стили сайта
