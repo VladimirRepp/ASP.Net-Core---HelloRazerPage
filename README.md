@@ -4,6 +4,7 @@ Example of simple web app with Razor for Users and Contacts Pages
 Струткура папок
 ====
 Pages/
+
 └── UsersPage.cshtml/         // Razor Page (HTML + JS)
     └── UsersPage.cshtml.cs   // PageModel (C#)
 └── ContactsPage.cshtml/      // Razor Page (HTML + JS)
