@@ -21,7 +21,7 @@ wwwroot/
 └── css/
     └── site.css            // Стили сайта
     
-Examples:
+UseCase:
 ===
 ![image](https://github.com/user-attachments/assets/e85bfc02-46e5-4fba-8a39-74f45b9f12b8)
 
