@@ -1,50 +1,62 @@
-﻿using HelloRazerPages.Models;
+using HelloRazerPages.Models;
 
-namespace HelloRazerPages.Services
+namespace HelloRazorPages.Services
 {
     public class UserService
     {
         private List<User> _users;
-        private int _nextId = 1;
+        private int _lastId = 0;
 
         public UserService()
         {
-            _users = new List<User>
-            {
-                new User { Id = GetCurrentId(), Login = "user1", Password = "pass1" },
-                new User { Id = GetCurrentId(), Login = "user2", Password = "pass2" }
-            };
+            _users = new();
         }
 
-        private int GetCurrentId() => _nextId++;
-        
+        public void GetDataFromSource()
+        {
+            _users.Add(new User() { Id = GetCurrentId(), Login = "log1", Password = "1111" });
+            _users.Add(new User() { Id = GetCurrentId(), Login = "log2", Password = "2222" });
+        }
+
+        private int GetCurrentId() => _lastId++;
+
         public List<User> GetAll() => _users;
 
-        public User GetById(int id) => _users.FirstOrDefault(u => u.Id == id);
+        public User GetById(int id) => _users.FirstOrDefault(x => x.Id == id);
 
-        public void Add(User user)
+        public User Add(User user)
         {
             user.Id = GetCurrentId();
             _users.Add(user);
+
+            return user;
         }
 
-        public void Update(User user)
+        public bool Update(User user)
         {
-            var existingUser = GetById(user.Id);
-            if (existingUser != null)
+            var found = _users.FirstOrDefault(x => x.Id == user.Id);
+
+            if (found == null)
             {
-                existingUser.Login = user.Login;
-                existingUser.Password = user.Password;
+                return false;
             }
+
+            found.Login = user.Login;
+            found.Password = user.Password;
+            return true;
         }
 
-        public void Delete(int id)
+        public bool Delete(int id)
         {
-            var user = GetById(id);
-            if (user != null)
+            var found = _users.FirstOrDefault(x => x.Id == id);
+
+            if (found == null)
             {
-                _users.Remove(user);
+                return false;
             }
+
+            _users.Remove(found);
+            return true;
         }
     }
 }
