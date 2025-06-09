@@ -29,10 +29,12 @@ namespace HelloRazerPages.Pages
 
         public IActionResult OnPostSave()
         {
+            bool isResult; 
+            
             if (CurrentUser.Id == 0)
-                _userService.Add(CurrentUser);
+                isResult = (CurrentUser = _userService.Add(CurrentUser)).Id != 0 ? true : false;
             else
-                _userService.Update(CurrentUser);
+                isResult = _userService.Update(CurrentUser);
 
             return RedirectToPage();
         }
