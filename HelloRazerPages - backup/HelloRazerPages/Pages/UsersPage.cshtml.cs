@@ -39,8 +39,8 @@ namespace HelloRazerPages.Pages
 
         public JsonResult OnPostDelete(int id)
         {
-            _userService.Delete(id);
-            return new JsonResult(new { success = true });
+            bool isResult = _userService.Delete(id);
+            return new JsonResult(new { success = isResult });
         }
     }
 }
