@@ -14,11 +14,11 @@ namespace HelloRazorPages.Services
 
         public void GetDataFromSource()
         {
-            _users.Add(new User() { Id = GetCurrentId(), Login = "log1", Password = "1111" });
-            _users.Add(new User() { Id = GetCurrentId(), Login = "log2", Password = "2222" });
+            _users.Add(new User() { Id = GetCurrentNextId(), Login = "log1", Password = "1111" });
+            _users.Add(new User() { Id = GetCurrentNextId(), Login = "log2", Password = "2222" });
         }
 
-        private int GetCurrentId() => _lastId++;
+        private int GetCurrentNextId() => _lastId++;
 
         public List<User> GetAll() => _users;
 
@@ -26,7 +26,7 @@ namespace HelloRazorPages.Services
 
         public User Add(User user)
         {
-            user.Id = GetCurrentId();
+            user.Id = GetCurrentNextId();
             _users.Add(user);
 
             return user;
