@@ -24,7 +24,7 @@ Frontend: Razor Pages, Bootstrap 5 <br />
 /Pages/Users/UsersPage.cshtml         – Razor-страница с интерфейсом <br />
 /Pages/Users/UsersPage.cshtml.cs      – логика обработчиков (Save, Delete) <br />
 /Data/User.cs                         – модель пользователя <br />
-appsettings.json                      – конфигурация SQLite <br />
+appsettings.json                      – конфигурация БД, если необходимо <br />
 
 🔹 Возможные улучшения:
 - Добавление авторизации (Identity)
